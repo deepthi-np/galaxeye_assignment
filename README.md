@@ -1,5 +1,3 @@
-galaxeye_assignment/
-
 ├── docker-compose.yml
 
 ├── README.md 
