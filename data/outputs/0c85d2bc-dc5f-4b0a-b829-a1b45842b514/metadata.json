@@ -1,0 +1,55 @@
+{
+  "image_a_original": "/data/uploads/8b98ae2f-4cb6-46d5-9c2f-6037f7eb4abb.tif",
+  "image_b_original": "/data/uploads/514cfa26-cd30-4304-95d4-0c165f404022.tif",
+  "aoi": {
+    "north": 28.64,
+    "south": 28.68,
+    "east": 77.25,
+    "west": 76.0
+  },
+  "alignment_method": "phase",
+  "transform": [
+    0.0,
+    0.0
+  ],
+  "image_bounds": {
+    "image_a": {
+      "north": 3330814.6121,
+      "south": 3324041.9324,
+      "east": 8598178.2774,
+      "west": 8591493.817
+    },
+    "image_b": {
+      "north": 3330814.6121,
+      "south": 3324041.9324,
+      "east": 8598178.2774,
+      "west": 8591493.817
+    }
+  },
+  "geographic_bounds": {
+    "image_a": {
+      "north": 28.647167966453818,
+      "south": 28.59376187627435,
+      "east": 77.23874962172879,
+      "west": 77.17870209229466
+    },
+    "image_b": {
+      "north": 28.647167966453818,
+      "south": 28.59376187627435,
+      "east": 77.23874962172879,
+      "west": 77.17870209229466
+    }
+  },
+  "output_files": {
+    "image_a_clipped": "/data/outputs/0c85d2bc-dc5f-4b0a-b829-a1b45842b514/A_clipped.tif",
+    "image_b_clipped": "/data/outputs/0c85d2bc-dc5f-4b0a-b829-a1b45842b514/B_clipped.tif",
+    "image_b_aligned": "/data/outputs/0c85d2bc-dc5f-4b0a-b829-a1b45842b514/B_clipped_aligned.tif",
+    "previews": {
+      "a_original": "/data/outputs/0c85d2bc-dc5f-4b0a-b829-a1b45842b514/A_preview.png",
+      "b_original": "/data/outputs/0c85d2bc-dc5f-4b0a-b829-a1b45842b514/B_preview.png",
+      "a_clipped": "/data/outputs/0c85d2bc-dc5f-4b0a-b829-a1b45842b514/A_clipped_preview.png",
+      "b_aligned": "/data/outputs/0c85d2bc-dc5f-4b0a-b829-a1b45842b514/B_aligned_preview.png"
+    }
+  },
+  "status": "completed"
+}
