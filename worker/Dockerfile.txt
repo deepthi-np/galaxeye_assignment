@@ -1,5 +1,6 @@
 FROM python:3.9-slim
 
+# Install dependencies for OpenCV
 RUN apt-get update && apt-get install -y \
     libgl1 \
     libglib2.0-0 \
@@ -13,12 +14,12 @@ RUN apt-get update && apt-get install -y \
 ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
 ENV C_INCLUDE_PATH=/usr/include/gdal
 
-WORKDIR /worker
+WORKDIR /app
 COPY requirements.txt .
-RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 COPY . .
 
-CMD ["tail", "-f", "/dev/null"]
+CMD ["python", "worker.py", "--image_a", "data/a.tif", "--image_b", "data/b.tif", "--aoi", "data/aoi.geojson", "--out_dir", "/app/output"]
 
 

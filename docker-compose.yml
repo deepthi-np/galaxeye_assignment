@@ -1,28 +1,55 @@
-version: "3.9"
 services:
   web:
     build: ./web
-    ports: ["3000:3000"]
-    depends_on: [api]
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8080
+    depends_on:
+      - api
     volumes:
       - ./web/src:/app/src
       - ./web/public:/app/public
+    stdin_open: true
+    tty: true
 
   api:
     build: ./api
-    ports: ["8080:8080"]
-    volumes: 
+    ports:
+      - "8080:8080"
+    volumes:
       - ./data:/data
-      - ./api/src:/app/src
+      - ./worker:/worker
+      - /var/run/docker.sock:/var/run/docker.sock
+      # - ./api:/app
+      - /app/node_modules
     environment:
-      - WORKER_CMD=python /app/worker.py
-    depends_on: [worker]
+      - NODE_ENV=development
+      - DATA_DIR=/data
+      - MAX_FILE_SIZE=4294967296
+      - HOST=0.0.0.0 
+    depends_on:
+      - worker
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+        reservations:
+          memory: 4G
 
   worker:
     build: ./worker
     volumes:
       - ./data:/data
-      - ./worker:/app
+      - ./worker:/worker
+    environment:
+      - PYTHONUNBUFFERED=1
+    deploy:
+      resources:
+        limits:
+          memory: 16G
+        reservations:
+          memory: 8G
 
 volumes:
   data:
